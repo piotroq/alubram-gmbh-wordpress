@@ -1,0 +1,11 @@
+# .github/workflows/lighthouse.yml
+name: Lighthouse CI
+on: [push]
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: treosh/lighthouse-ci-action@v9
+        with:
+          budgetPath: ./performance-budget.json
