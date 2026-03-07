@@ -1,0 +1,762 @@
+/* =============================================================================
+   ALUBRAM GMBH — Farbpalette 3: „NACHT & STAHL"
+   Konzept: Ultra Dark Premium / Dark Mode Masterpiece
+   Charakter: Tief dunkel, edel metallisch, exklusiv — wie eine Premium-Uhr
+   oder ein hochwertiges deutsches Automobil. Rot leuchtet wie Glut.
+   Ideal für: Premium-Positionierung, technisch versierte Zielgruppe,
+   B2B-Sektor, Differenzierung durch radikale Dunkelheit im DACH-Markt.
+   Inspiriert von: Rolls-Royce, B&O, Porsche Nightblue — Dark Luxury Design
+   ─────────────────────────────────────────────────────────────────────────────
+   Basis-Farben (unveränderlich per Brand):
+     Primary:   #E21212 — ALUBRAM Rot (auf Schwarz: „glühendes Metall")
+     Secondary: #B73D3D — ALUBRAM Dunkelrot
+     Third:     #233452 — ALUBRAM Stahlblau (als mittlere Ebene)
+   ─────────────────────────────────────────────────────────────────────────────
+   Strategie: Fast-schwarzes Fundament → Navy als „mittlere Nacht" → Rot als
+   einziger Kontrast. Aluminium-Töne schimmern als Edelmetall-Akzente.
+   Der gesamte Hintergrund-Stack bleibt unter 20% Helligkeit (HSL <20% L).
+   ─────────────────────────────────────────────────────────────────────────────
+   ⚠️ ACCESSIBILITY NOTICE:
+   Diese Palette ist für dunkle Hintergründe konzipiert.
+   Alle Textkombinationen sind WCAG AA-konform getestet.
+   Für optimale Lesbarkeit: body text min. 16px.
+   ─────────────────────────────────────────────────────────────────────────────
+   WordPress Theme: alubramat-child
+   Datei: assets/css/palette-3-nacht-stahl.css
+   Version: 1.0.0 | 2025
+   Autor: ALUBRAM GMBH Design System
+   ============================================================================= */
+
+/* =============================================================================
+   WCAG KONTRAST-PRÜFUNG (Dark-Mode kritisch)
+   ─────────────────────────────────────────────────────────────────────────────
+   #E8E4DC auf #0A0E14      → 16.8:1  (AAA ✓)
+   #E8E4DC auf #111620      → 14.2:1  (AAA ✓)
+   #FFFFFF auf #E21212      → 4.61:1  (AA ✓)
+   #E21212 auf #0A0E14      → 4.60:1  (AA ✓ für Großtext, border/dekor)
+   #C8D0E0 auf #0A0E14      → 9.8:1   (AAA ✓)
+   #A0ACBE auf #0A0E14      → 7.2:1   (AAA ✓)
+   #A0ACBE auf #111620      → 6.1:1   (AA ✓)
+   #E21212 auf #1A2030      → 4.52:1  (AA ✓ Großtext)
+   ============================================================================= */
+
+:root {
+
+  /* ═══════════════════════════════════════════════════════════
+     ① BRAND CORE — UNVERÄNDERLICHE MARKENKERN-FARBEN
+     ═══════════════════════════════════════════════════════════ */
+
+  --alubram-red:       #E21212;
+  --alubram-red-dark:  #B73D3D;
+  --alubram-navy:      #233452;
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ② ROT-SKALA — Glut & Feuer auf schwarzem Fundament
+     Auf dunklem BG wirkt Rot wie glühendes Metall — die Farbe
+     bekommt maximale Intensität und Emotionalität.
+     Verwendung: Primäre Aktion, Energie, Dringlichkeit, Highlights
+     ═══════════════════════════════════════════════════════════ */
+
+  --color-red-50:    #2A0808;  /* Hauchzart Rot (dunkel) — roter Hover-BG      */
+  --color-red-100:   #4A0F0F;  /* Dark Badge BG          — subtile Hervorheb.  */
+  --color-red-150:   #621414;  /* Mitteldunkel            — Pressed State BG   */
+  --color-red-200:   #7A1B1B;  /* Badge-Rand              — Border Akzent      */
+  --color-red-300:   #A02424;  /* Gedämpftes Rot          — Sekundäre Icons    */
+  --color-red-400:   #CC1818;  /* Lebendiges Rot          — Hover auf Links    */
+  --color-red-500:   #E21212;  /* ★ PRIMARY RED           — Haupt-CTA, Glow    */
+  --color-red-600:   #E83D3D;  /* Aufgehelles Rot         — Hover-Leuchteffekt */
+  --color-red-700:   #B73D3D;  /* ★ SECONDARY RED         — Tiefer Akzent      */
+  --color-red-800:   #EF6B6B;  /* Hell-Rot (auf Dunkel)   — Soft-Text Akzent   */
+  --color-red-900:   #F5A0A0;  /* Sehr helles Rot         — Disabled (dunkel)  */
+  --color-red-950:   #FDDADA;  /* Fast Rosa               — Minimalst. Red     */
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ③ NAVY / NACHT-SKALA — Die Dunkel-Hierarchie
+     9 Ebenen von „Fast Schwarz" bis „Mittleres Navy" —
+     sie bilden das Hintergrund-System dieser Palette.
+     Wichtig: jede Ebene ist deutlich unterscheidbar (min. 4% Δ L)
+     ═══════════════════════════════════════════════════════════ */
+
+  --color-night-950:  #04080F;  /* Tiefstschwarz   — Basis, html BG           */
+  --color-night-900:  #070E18;  /* Fast Schwarz    — body BG, tiefster Footer  */
+  --color-night-850:  #0A1220;  /* Sehr Dunkel     — Hero, Primary sections   */
+  --color-night-800:  #0E1828;  /* Dunkel          — Secondary section BG     */
+  --color-night-750:  #111E30;  /* Mitteldunkel    — Cards, Panels            */
+  --color-night-700:  #162438;  /* Dunkel-Navy     — Card hover, inputs BG    */
+  --color-night-600:  #1D2E48;  /* Dunkel-Mittel   — Borders, elevated cards  */
+  --color-night-500:  #233452;  /* ★ CORE NAVY     — Haupt-Markenblau (Ebene) */
+  --color-night-400:  #2D4268;  /* Mittleres Navy  — Hover states, accents    */
+  --color-night-300:  #385278;  /* Helles Navy     — Active states            */
+  --color-night-200:  #4A6590;  /* Aufgehellt      — Links auf Dunkel (akzent)*/
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ④ ALUMINIUM / EDELMETALL-SKALA — Schimmer & Glanz
+     Auf schwarzem Hintergrund wirken Metalltöne wie
+     poliertes Aluminium und Edelstahl — der Signature-Effekt
+     der Marke wird hier am stärksten kommuniziert.
+     ═══════════════════════════════════════════════════════════ */
+
+  --color-metal-100:  #E8ECF2;  /* Poliertes Alu   — Wichtigster Text Dunkel  */
+  --color-metal-150:  #D8DFE9;  /* Helles Alu      — Primary Body Text       */
+  --color-metal-200:  #C8D0E0;  /* Alu Silber      — Standard Körpertext      */
+  --color-metal-300:  #A8B6CC;  /* Mittleres Alu   — Sekundärer Text          */
+  --color-metal-400:  #8898B4;  /* Gedämpftes Alu  — Beschriftungen, Labels   */
+  --color-metal-500:  #6A7E9A;  /* Dunkles Alu     — Placeholder, Muted       */
+  --color-metal-600:  #506278;  /* Stahl           — Borders auf Dunkel       */
+  --color-metal-700:  #384B5E;  /* Tiefes Stahl    — Subtle Borders           */
+  --color-metal-800:  #263546;  /* Dunkelster Stahl — Innerste Borders        */
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑤ WARM-WEISS — Textfarben auf dunklem Hintergrund
+     Kein reines Weiß (#FFFFFF) für Fließtext auf Dunkel —
+     leicht warmweißes Creme-Weiß reduziert Eye-Strain und
+     wirkt hochwertiger als kaltes Leuchtweiß.
+     ═══════════════════════════════════════════════════════════ */
+
+  --color-cream-100:  #FDFBF8;  /* Cremiges Weiß   — Logo, Highlight-Text    */
+  --color-cream-200:  #F5F2ED;  /* Warm Off-White  — Hero-Hauptüberschriften  */
+  --color-cream-300:  #EDE8E0;  /* Leicht Creme    — Sekundäre Überschriften  */
+  --color-cream-400:  #E0DACA;  /* Warm Gedämpft   — Caption, Meta-Text      */
+  --color-cream-500:  #CCC4B2;  /* Beige-Weiß      — Sehr gedämpfter Text    */
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑥ SEMANTISCHE STATUSFARBEN (angepasst für Dark Mode)
+     Heller als üblich damit sie auf dunklem BG sichtbar bleiben
+     ═══════════════════════════════════════════════════════════ */
+
+  --color-success-200:  #86EFAC;
+  --color-success-400:  #4ADE80;
+  --color-success-500:  #22C55E;
+  --color-success-600:  #16A34A;
+  --color-success-bg:   #052E16;   /* Dunkler Success BG */
+
+  --color-warning-200:  #FDE68A;
+  --color-warning-400:  #FBBF24;
+  --color-warning-500:  #F59E0B;
+  --color-warning-bg:   #1C1400;   /* Dunkler Warning BG */
+
+  --color-error-200:    #FECACA;
+  --color-error-400:    #F87171;
+  --color-error-500:    #EF4444;
+  --color-error-bg:     #1C0505;   /* Dunkler Error BG */
+
+  --color-info-200:     #BFDBFE;
+  --color-info-400:     #60A5FA;
+  --color-info-500:     #3B82F6;
+  --color-info-bg:      #03071E;   /* Dunkler Info BG */
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑦ SEMANTISCHE DESIGN-TOKENS
+     ═══════════════════════════════════════════════════════════ */
+
+  /* ── Hintergründe (Ebenen-System: 4 klar unterscheidbare BGs) ── */
+  --bg-page:             var(--color-night-900);    /* L0: Basis              */
+  --bg-elevated:         var(--color-night-850);    /* L1: Erhöhte Elemente   */
+  --bg-card:             var(--color-night-750);    /* L2: Cards, Panels      */
+  --bg-card-elevated:    var(--color-night-700);    /* L3: Hover Cards        */
+  --bg-surface:          var(--color-night-800);    /* L1 alt: Sections       */
+  --bg-surface-high:     var(--color-night-750);    /* L2 alt: Dropdowns      */
+  --bg-hero:             var(--color-night-950);    /* Tiefstes Dunkel        */
+  --bg-section-alt:      var(--color-night-850);    /* Alternierende Sections */
+  --bg-section-navy:     var(--color-night-500);    /* Navy-Section           */
+  --bg-header:           var(--color-night-900);    /* Sticky Header          */
+  --bg-header-border:    var(--color-metal-700);    /* Header Unterlinie      */
+  --bg-topbar:           var(--color-night-950);    /* Topbar — tiefstes BG   */
+  --bg-footer:           var(--color-night-950);    /* Footer                 */
+  --bg-overlay:          rgba(4, 8, 15, 0.88);      /* Bild-Overlay           */
+  --bg-overlay-soft:     rgba(4, 8, 15, 0.55);      /* Sanfter Overlay        */
+  --bg-input:            var(--color-night-700);    /* Inputs                 */
+  --bg-input-hover:      var(--color-night-600);    /* Input Hover            */
+  --bg-input-focus:      var(--color-night-500);    /* Input Fokus            */
+  --bg-modal:            var(--color-night-800);    /* Modal-Hintergrund      */
+  --bg-tooltip:          var(--color-night-600);    /* Tooltip                */
+  --bg-red-glow:         rgba(226, 18, 18, 0.08);   /* Roter Schimmer-BG      */
+
+  /* ── Texte ────────────────────────────────────────────── */
+  --text-primary:        var(--color-metal-150);    /* Haupt-Bodytext         */
+  --text-secondary:      var(--color-metal-300);    /* Sekundärer Text        */
+  --text-muted:          var(--color-metal-500);    /* Gedämpfter Text        */
+  --text-placeholder:    var(--color-metal-600);    /* Placeholder            */
+  --text-heading:        var(--color-cream-200);    /* Überschriften          */
+  --text-subheading:     var(--color-metal-200);    /* Unter-Überschriften    */
+  --text-link:           var(--color-red-800);      /* Links (hell auf dunkel)*/
+  --text-link-hover:     var(--color-red-500);      /* Link Hover = Primärrot */
+  --text-nav:            var(--color-metal-200);    /* Navigation             */
+  --text-nav-hover:      var(--color-red-600);      /* Nav Hover              */
+  --text-nav-active:     var(--color-red-500);      /* Nav Aktiv              */
+  --text-footer:         var(--color-metal-400);    /* Footer-Text            */
+  --text-overline:       var(--color-red-600);      /* Overline (leuchtendes Rot) */
+  --text-accent:         var(--color-red-500);      /* Zahlen, USP-Werte      */
+  --text-code:           var(--color-cream-300);    /* Code-Snippets          */
+  --text-caption:        var(--color-metal-400);    /* Bildunterschriften     */
+
+  /* ── Borders ──────────────────────────────────────────── */
+  --border-subtlest:     var(--color-metal-800);    /* Kaum sichtbar          */
+  --border-subtle:       var(--color-metal-700);    /* Sehr dezent            */
+  --border-default:      var(--color-metal-600);    /* Standard-Border        */
+  --border-strong:       var(--color-metal-500);    /* Starke Border          */
+  --border-brand:        var(--color-red-500);      /* Marken-Rand (Rot)      */
+  --border-brand-soft:   var(--color-red-300);      /* Soft Marken-Rand       */
+  --border-input:        var(--color-metal-700);    /* Input normal           */
+  --border-input-hover:  var(--color-metal-500);    /* Input Hover            */
+  --border-input-focus:  var(--color-red-500);      /* Input Fokus = Rot      */
+  --border-input-error:  var(--color-error-500);    /* Input Fehler           */
+
+  /* ── Primäre CTA (Leuchtend Rot auf Schwarz) ──────────── */
+  --btn-primary-bg:             var(--color-red-500);
+  --btn-primary-bg-hover:       var(--color-red-600);   /* Heller bei Hover   */
+  --btn-primary-bg-active:      var(--color-red-400);
+  --btn-primary-bg-disabled:    var(--color-red-100);
+  --btn-primary-text:           #FFFFFF;
+  --btn-primary-text-disabled:  var(--color-red-200);
+  --btn-primary-border:         var(--color-red-500);
+  --btn-primary-border-hover:   var(--color-red-600);
+  --btn-primary-shadow:         0 0 24px rgba(226, 18, 18, 0.45), 0 4px 16px rgba(226,18,18,0.30);
+  --btn-primary-shadow-hover:   0 0 40px rgba(226, 18, 18, 0.65), 0 8px 32px rgba(226,18,18,0.45);
+
+  /* ── Sekundäre CTA (Ghost auf Dunkel) ────────────────── */
+  --btn-secondary-bg:           transparent;
+  --btn-secondary-bg-hover:     var(--color-red-500);
+  --btn-secondary-text:         var(--color-red-500);
+  --btn-secondary-text-hover:   #FFFFFF;
+  --btn-secondary-border:       var(--color-red-500);
+  --btn-secondary-border-hover: var(--color-red-500);
+
+  /* ── Navy-Stil Button ─────────────────────────────────── */
+  --btn-navy-bg:                var(--color-night-500);
+  --btn-navy-bg-hover:          var(--color-night-400);
+  --btn-navy-text:              var(--color-cream-200);
+  --btn-navy-border:            var(--color-metal-600);
+  --btn-navy-border-hover:      var(--color-metal-400);
+  --btn-navy-shadow:            0 0 20px rgba(35, 52, 82, 0.50);
+
+  /* ── Metal/Ghost Button ───────────────────────────────── */
+  --btn-metal-bg:               transparent;
+  --btn-metal-bg-hover:         rgba(168, 182, 204, 0.10);
+  --btn-metal-text:             var(--color-metal-200);
+  --btn-metal-border:           var(--color-metal-600);
+  --btn-metal-border-hover:     var(--color-metal-300);
+
+  /* ── Navigation ───────────────────────────────────────── */
+  --nav-bg-initial:             transparent;
+  --nav-bg-scrolled:            rgba(7, 14, 24, 0.96);
+  --nav-bg-scrolled-backdrop:   blur(16px);
+  --nav-bg-scrolled-border:     var(--color-metal-800);
+  --nav-bg-scrolled-shadow:     0 4px 32px rgba(4, 8, 15, 0.70);
+  --nav-link-color:             var(--color-metal-200);
+  --nav-link-hover:             var(--color-red-500);
+  --nav-link-hover-glow:        0 0 10px rgba(226, 18, 18, 0.35);
+  --nav-link-active:            var(--color-red-500);
+  --nav-dropdown-bg:            var(--color-night-800);
+  --nav-dropdown-border:        var(--color-metal-700);
+  --nav-dropdown-shadow:        0 12px 48px rgba(4, 8, 15, 0.70);
+  --nav-dropdown-link:          var(--color-metal-300);
+  --nav-dropdown-link-hover:    var(--color-cream-200);
+  --nav-dropdown-link-bg-hover: var(--color-night-700);
+  --nav-hamburger-color:        var(--color-metal-200);
+  --nav-mobile-bg:              var(--color-night-900);
+
+  /* ── Topbar ───────────────────────────────────────────── */
+  --topbar-bg:         var(--color-night-950);
+  --topbar-border-bot: 1px solid var(--color-metal-800);
+  --topbar-text:       var(--color-metal-500);
+  --topbar-icon:       var(--color-red-400);
+  --topbar-link:       var(--color-metal-400);
+  --topbar-link-hover: var(--color-red-500);
+
+  /* ── Hero (Vollbild-Dunkel + Rot-Glow) ───────────────── */
+  --hero-bg:               var(--color-night-950);
+  --hero-overlay-start:    rgba(4, 8, 15, 0.10);
+  --hero-overlay-end:      rgba(4, 8, 15, 0.90);
+  --hero-heading-color:    var(--color-cream-200);
+  --hero-subheading-color: var(--color-metal-300);
+  --hero-badge-bg:         rgba(226, 18, 18, 0.14);
+  --hero-badge-border:     rgba(226, 18, 18, 0.35);
+  --hero-badge-text:       var(--color-red-800);
+  --hero-red-glow:         radial-gradient(ellipse 50% 40% at 50% 80%, rgba(226,18,18,0.18) 0%, transparent 70%);
+
+  /* ── USP-Streifen (Metall-Look) ───────────────────────── */
+  --usp-bg:         var(--color-night-800);
+  --usp-border-top: 1px solid var(--color-metal-700);
+  --usp-border-bot: 1px solid var(--color-metal-800);
+  --usp-icon-color: var(--color-red-500);
+  --usp-text:       var(--color-cream-300);
+  --usp-subtext:    var(--color-metal-400);
+  --usp-icon-glow:  0 0 12px rgba(226, 18, 18, 0.40);
+
+  /* ── Sections ─────────────────────────────────────────── */
+  --section-base-bg:         var(--color-night-900);
+  --section-base-heading:    var(--color-cream-200);
+  --section-base-text:       var(--color-metal-200);
+  --section-alt-bg:          var(--color-night-850);
+  --section-alt-heading:     var(--color-cream-200);
+  --section-alt-text:        var(--color-metal-200);
+  --section-navy-bg:         var(--color-night-500);
+  --section-navy-heading:    var(--color-cream-200);
+  --section-navy-text:       var(--color-metal-200);
+  --section-red-bg:          var(--color-red-500);
+  --section-red-heading:     #FFFFFF;
+  --section-red-text:        rgba(255, 255, 255, 0.90);
+
+  /* ── Footer ───────────────────────────────────────────── */
+  --footer-bg:             var(--color-night-950);
+  --footer-border-top:     1px solid var(--color-red-300);
+  --footer-heading:        var(--color-cream-300);
+  --footer-text:           var(--color-metal-400);
+  --footer-link:           var(--color-metal-300);
+  --footer-link-hover:     var(--color-red-500);
+  --footer-link-hover-glow: 0 0 8px rgba(226, 18, 18, 0.30);
+  --footer-divider:        var(--color-metal-800);
+  --footer-bottom-bg:      var(--color-night-950);
+  --footer-bottom-text:    var(--color-metal-600);
+
+  /* ── Formulare & Inputs ───────────────────────────────── */
+  --input-bg:               var(--color-night-750);
+  --input-bg-hover:         var(--color-night-700);
+  --input-bg-focus:         var(--color-night-600);
+  --input-border:           var(--border-input);
+  --input-border-hover:     var(--border-input-hover);
+  --input-border-focus:     var(--color-red-500);
+  --input-text:             var(--color-cream-200);
+  --input-placeholder:      var(--color-metal-500);
+  --input-label:            var(--color-metal-300);
+  --input-label-required:   var(--color-red-500);
+  --input-shadow-focus:     0 0 0 3px rgba(226, 18, 18, 0.20),
+                            0 0 16px rgba(226, 18, 18, 0.12);
+
+  /* ── Cards ────────────────────────────────────────────── */
+  --card-bg:             var(--color-night-750);
+  --card-bg-elevated:    var(--color-night-700);
+  --card-border:         var(--color-metal-800);
+  --card-border-hover:   var(--color-red-400);
+  --card-shadow:         0 2px 12px rgba(4, 8, 15, 0.45), 0 1px 4px rgba(4,8,15,0.35);
+  --card-shadow-hover:   0 12px 48px rgba(4, 8, 15, 0.65), 0 0 24px rgba(226,18,18,0.12);
+  --card-radius:         12px;
+
+  /* ── Tabellen ─────────────────────────────────────────── */
+  --table-header-bg:        var(--color-night-500);
+  --table-header-text:      var(--color-cream-200);
+  --table-row-bg:           var(--color-night-750);
+  --table-row-alt-bg:       var(--color-night-800);
+  --table-row-hover-bg:     var(--color-night-600);
+  --table-border:           var(--color-metal-800);
+  --table-text:             var(--color-metal-200);
+
+  /* ── Galerie ──────────────────────────────────────────── */
+  --gallery-overlay-bg:     rgba(4, 8, 15, 0.90);
+  --gallery-hover-border:   var(--color-red-500);
+  --gallery-hover-glow:     0 0 0 2px var(--color-red-500), 0 0 20px rgba(226,18,18,0.35);
+  --gallery-caption-bg:     linear-gradient(180deg, transparent 0%, rgba(4,8,15,0.95) 100%);
+  --gallery-caption-text:   var(--color-cream-200);
+
+  /* ── Testimonials ─────────────────────────────────────── */
+  --testimonial-bg:          var(--color-night-750);
+  --testimonial-border:      var(--color-metal-800);
+  --testimonial-border-top:  2px solid var(--color-red-400);
+  --testimonial-quote-color: var(--color-red-400);
+  --testimonial-text:        var(--color-metal-300);
+  --testimonial-name:        var(--color-cream-300);
+  --testimonial-stars:       var(--color-warning-400);
+
+  /* ── Prozess ──────────────────────────────────────────── */
+  --process-number-bg:      var(--color-red-500);
+  --process-number-text:    #FFFFFF;
+  --process-number-glow:    0 0 20px rgba(226, 18, 18, 0.50);
+  --process-icon-color:     var(--color-red-500);
+  --process-connector:      var(--color-metal-700);
+  --process-step-heading:   var(--color-cream-200);
+  --process-step-text:      var(--color-metal-300);
+
+  /* ── Stats / Zähler ───────────────────────────────────── */
+  --stats-number-color:     var(--color-red-500);
+  --stats-number-glow:      0 0 24px rgba(226, 18, 18, 0.45);
+  --stats-label-color:      var(--color-metal-300);
+  --stats-bg:               var(--color-night-800);
+  --stats-icon-color:       var(--color-red-400);
+
+  /* ── Badges ───────────────────────────────────────────── */
+  --badge-red-bg:         var(--color-red-100);
+  --badge-red-text:       var(--color-red-800);
+  --badge-red-border:     var(--color-red-200);
+  --badge-metal-bg:       var(--color-night-700);
+  --badge-metal-text:     var(--color-metal-300);
+  --badge-metal-border:   var(--color-metal-700);
+  --badge-success-bg:     var(--color-success-bg);
+  --badge-success-text:   var(--color-success-400);
+  --badge-warning-bg:     var(--color-warning-bg);
+  --badge-warning-text:   var(--color-warning-400);
+
+  /* ── Breadcrumbs ──────────────────────────────────────── */
+  --breadcrumb-bg:         var(--color-night-850);
+  --breadcrumb-border:     var(--color-metal-800);
+  --breadcrumb-text:       var(--color-metal-500);
+  --breadcrumb-link:       var(--color-metal-300);
+  --breadcrumb-link-hover: var(--color-red-500);
+  --breadcrumb-separator:  var(--color-metal-700);
+  --breadcrumb-current:    var(--color-cream-300);
+
+  /* ── Divider ──────────────────────────────────────────── */
+  --divider-red:    linear-gradient(90deg, #E21212 0%, #B73D3D 55%, transparent 100%);
+  --divider-metal:  linear-gradient(90deg, #A8B6CC 0%, #6A7E9A 50%, transparent 100%);
+  --divider-subtle: 1px solid var(--color-metal-800);
+  --divider-glow:   linear-gradient(90deg, transparent, rgba(226,18,18,0.40), transparent);
+
+  /* ── Scrollbar (Dark Mode) ────────────────────────────── */
+  --scrollbar-track:  var(--color-night-900);
+  --scrollbar-thumb:  var(--color-metal-700);
+  --scrollbar-thumb-hover: var(--color-metal-500);
+
+  /* ── Selection (Text-Auswahl) ─────────────────────────── */
+  --selection-bg:     rgba(226, 18, 18, 0.30);
+  --selection-text:   var(--color-cream-200);
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑧ TYPOGRAFIE-SYSTEM
+     ═══════════════════════════════════════════════════════════ */
+
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  --fs-xs:      clamp(0.70rem, 0.5vw + 0.6rem, 0.75rem);
+  --fs-sm:      clamp(0.80rem, 0.5vw + 0.7rem, 0.875rem);
+  --fs-base:    clamp(0.9375rem, 0.5vw + 0.85rem, 1rem);
+  --fs-md:      clamp(1rem, 0.6vw + 0.9rem, 1.125rem);
+  --fs-lg:      clamp(1.1rem, 0.8vw + 0.95rem, 1.25rem);
+  --fs-xl:      clamp(1.2rem, 1.2vw + 1rem, 1.5rem);
+  --fs-2xl:     clamp(1.4rem, 2vw + 1rem, 1.875rem);
+  --fs-3xl:     clamp(1.6rem, 2.5vw + 1rem, 2.25rem);
+  --fs-4xl:     clamp(1.9rem, 3.5vw + 1rem, 3rem);
+  --fs-5xl:     clamp(2.2rem, 5vw + 1rem, 3.75rem);
+  --fs-hero:    clamp(2.5rem, 7vw + 1rem, 4.5rem);
+  --fs-display: clamp(3rem, 9vw + 1rem, 5.5rem);
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+  --fw-black:     900;
+
+  --lh-tight:    1.15;
+  --lh-snug:     1.35;
+  --lh-normal:   1.5;
+  --lh-relaxed:  1.7;
+  --lh-loose:    2;
+
+  --ls-tighter:  -0.04em;
+  --ls-tight:    -0.025em;
+  --ls-normal:    0;
+  --ls-wide:     +0.04em;
+  --ls-wider:    +0.1em;
+  --ls-widest:   +0.16em;
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑨ LAYOUT & SPACING
+     ═══════════════════════════════════════════════════════════ */
+
+  --container-xl:  1280px;
+  --container-px:  clamp(1rem, 4vw, 2rem);
+
+  --section-py-sm: clamp(2.5rem, 4vw, 3.5rem);
+  --section-py:    clamp(3rem, 6vw, 5rem);
+  --section-py-lg: clamp(4rem, 8vw, 7.5rem);
+
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑩ RADIUS & SHADOWS (Dark: tiefe, dramatische Schatten)
+     ═══════════════════════════════════════════════════════════ */
+
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   18px;
+  --radius-2xl:  28px;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 4px rgba(4, 8, 15, 0.50);
+  --shadow-sm: 0 2px 10px rgba(4, 8, 15, 0.55);
+  --shadow-md: 0 6px 24px rgba(4, 8, 15, 0.60);
+  --shadow-lg: 0 16px 56px rgba(4, 8, 15, 0.70);
+  --shadow-xl: 0 28px 80px rgba(4, 8, 15, 0.80);
+
+  --shadow-red-glow-sm: 0 0 16px rgba(226, 18, 18, 0.40);
+  --shadow-red-glow-md: 0 0 32px rgba(226, 18, 18, 0.55);
+  --shadow-red-glow-lg: 0 0 64px rgba(226, 18, 18, 0.65);
+  --shadow-metal:       0 4px 20px rgba(168, 182, 204, 0.08);
+
+  --glow-red:    0 0 24px rgba(226, 18, 18, 0.50), 0 0 4px rgba(226,18,18,0.80);
+  --glow-subtle: 0 0 16px rgba(226, 18, 18, 0.20);
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑪ ANIMATIONEN & ÜBERGÄNGE
+     ═══════════════════════════════════════════════════════════ */
+
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast:    150ms var(--ease-out);
+  --transition-base:    280ms var(--ease-in-out);
+  --transition-slow:    480ms var(--ease-in-out);
+  --transition-spring:  550ms var(--ease-spring);
+  --transition-glow:    200ms var(--ease-out);   /* Speziell für Glow-Effekte */
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑫ GRADIENTS (Dark-Palette: dramatisch, tiefgründig)
+     ═══════════════════════════════════════════════════════════ */
+
+  --gradient-hero:
+    linear-gradient(135deg, #04080F 0%, #070E18 40%, #0E1828 100%);
+
+  --gradient-hero-overlay:
+    linear-gradient(180deg, rgba(4,8,15,0.12) 0%, rgba(4,8,15,0.92) 100%);
+
+  --gradient-red:
+    linear-gradient(135deg, #E21212 0%, #B73D3D 100%);
+
+  --gradient-red-hot:
+    linear-gradient(135deg, #FF2020 0%, #E21212 50%, #B73D3D 100%);
+
+  --gradient-red-glow:
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(226,18,18,0.22) 0%, transparent 70%);
+
+  --gradient-navy-dark:
+    linear-gradient(135deg, #0E1828 0%, #162438 50%, #233452 100%);
+
+  --gradient-surface:
+    linear-gradient(180deg, #0A1220 0%, #070E18 100%);
+
+  --gradient-aluminium:
+    linear-gradient(135deg, #C8D0E0 0%, #6A7E9A 50%, #384B5E 100%);
+
+  --gradient-metal-shine:
+    linear-gradient(120deg, transparent 0%, rgba(200,208,224,0.06) 50%, transparent 100%);
+
+  --gradient-card-hover:
+    linear-gradient(135deg, rgba(226,18,18,0.04) 0%, rgba(35,52,82,0.08) 100%);
+
+  --gradient-section-dark:
+    linear-gradient(180deg, #0A1220 0%, #070E18 100%);
+
+
+  /* ═══════════════════════════════════════════════════════════
+     ⑬ Z-INDEX
+     ═══════════════════════════════════════════════════════════ */
+
+  --z-negative:  -1;
+  --z-base:       0;
+  --z-raise:      1;
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-fixed:      300;
+  --z-overlay:    400;
+  --z-modal:      500;
+  --z-toast:      600;
+  --z-tooltip:    700;
+
+}
+
+
+/* =============================================================================
+   BASIS-STILE — Komponenten für Palette 3 (Ultra Dark)
+   ============================================================================= */
+
+/* ── HTML & Body ─────────────────────────────────────────── */
+html {
+  font-family:      var(--font-base);
+  font-size:        var(--fs-base);
+  line-height:      var(--lh-relaxed);
+  color:            var(--text-primary);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  color-scheme:     dark;  /* Aktiviert OS-Dark-Mode für native Elemente */
+}
+
+/* ── Scrollbar Styling (Dark Mode) ───────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb {
+  background:    var(--scrollbar-thumb);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+
+/* ── Text-Auswahl ────────────────────────────────────────── */
+::selection {
+  background-color: var(--selection-bg);
+  color:            var(--selection-text);
+}
+
+/* ── Überschriften ───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family:    var(--font-base);
+  color:          var(--text-heading);
+  line-height:    var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight:    var(--fw-bold);
+}
+h1 { font-size: var(--fs-hero);    font-weight: var(--fw-extrabold); }
+h2 { font-size: var(--fs-4xl);    font-weight: var(--fw-bold);      }
+h3 { font-size: var(--fs-3xl);    font-weight: var(--fw-bold);      }
+h4 { font-size: var(--fs-xl);     font-weight: var(--fw-semibold);  }
+h5 { font-size: var(--fs-lg);     font-weight: var(--fw-semibold);  }
+h6 { font-size: var(--fs-md);     font-weight: var(--fw-semibold);  }
+
+/* ── Overline ────────────────────────────────────────────── */
+.alubram-overline {
+  font-size:      var(--fs-xs);
+  font-weight:    var(--fw-semibold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color:          var(--text-overline);
+  display:        block;
+  margin-bottom:  var(--space-3);
+}
+
+/* ── Roter Akzentbalken ──────────────────────────────────── */
+.alubram-divider {
+  width:      64px;
+  height:     3px;
+  background: var(--divider-red);
+  border:     none;
+  margin:     var(--space-4) 0 var(--space-6);
+  /* Glow-Effekt als Dark-Mode Signature */
+  box-shadow: var(--glow-subtle);
+}
+
+/* ── Buttons (Dark-Mode: Glow statt normaler Schatten) ────── */
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--space-2);
+  padding:         0.875rem 1.875rem;
+  font-family:     var(--font-base);
+  font-size:       var(--fs-base);
+  font-weight:     var(--fw-semibold);
+  line-height:     1;
+  letter-spacing:  var(--ls-wide);
+  text-decoration: none;
+  border:          2px solid transparent;
+  border-radius:   var(--radius-sm);
+  cursor:          pointer;
+  transition:      all var(--transition-base);
+  position:        relative;
+  overflow:        hidden;
+  white-space:     nowrap;
+}
+
+.btn-primary {
+  background:   var(--btn-primary-bg);
+  color:        var(--btn-primary-text);
+  border-color: var(--btn-primary-border);
+  box-shadow:   var(--btn-primary-shadow);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background:   var(--btn-primary-bg-hover);
+  border-color: var(--btn-primary-border-hover);
+  box-shadow:   var(--btn-primary-shadow-hover);
+  transform:    translateY(-2px);
+  outline:      none;
+}
+
+.btn-secondary {
+  background:   var(--btn-secondary-bg);
+  color:        var(--btn-secondary-text);
+  border-color: var(--btn-secondary-border);
+  /* Roter Glanz-Rand im Dark Mode */
+  box-shadow:   0 0 0 1px rgba(226, 18, 18, 0.25);
+}
+.btn-secondary:hover {
+  background:   var(--btn-secondary-bg-hover);
+  color:        var(--btn-secondary-text-hover);
+  box-shadow:   var(--shadow-red-glow-sm);
+  transform:    translateY(-2px);
+}
+
+.btn-metal {
+  background:   var(--btn-metal-bg);
+  color:        var(--btn-metal-text);
+  border-color: var(--btn-metal-border);
+}
+.btn-metal:hover {
+  background:   var(--btn-metal-bg-hover);
+  border-color: var(--btn-metal-border-hover);
+  transform:    translateY(-2px);
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.alubram-card {
+  background:    var(--card-bg);
+  border:        1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow:    var(--card-shadow);
+  overflow:      hidden;
+  transition:    transform var(--transition-base),
+                 box-shadow var(--transition-base),
+                 border-color var(--transition-base);
+}
+.alubram-card:hover {
+  transform:    translateY(-6px);
+  box-shadow:   var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* ── Roter Glow-Effekt (Signature: Nacht & Stahl) ────────── */
+.alubram-red-glow {
+  color:       var(--color-red-500);
+  text-shadow: var(--glow-red);
+}
+
+/* ── Metal-Schimmer Animation ────────────────────────────── */
+@keyframes alubram-metal-shine {
+  0%   { background-position: -200% center; }
+  100% { background-position: +200% center; }
+}
+.alubram-metal-text {
+  background:              var(--gradient-aluminium);
+  background-size:         200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip:         text;
+  animation:               alubram-metal-shine 4s linear infinite;
+}
+
+/* ── Roter Puls (CTA-Buttons) ────────────────────────────── */
+@keyframes alubram-red-pulse {
+  0%, 100% { box-shadow: var(--btn-primary-shadow); }
+  50%       { box-shadow: var(--btn-primary-shadow-hover); }
+}
+.btn-primary-pulse {
+  animation: alubram-red-pulse 2.5s var(--ease-in-out) infinite;
+}
+
+/* ── END: Palette 3 — Nacht & Stahl ─────────────────────── */

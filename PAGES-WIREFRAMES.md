@@ -28,6 +28,7 @@
 Ten dokument definiuje wireframes i specyfikacje layoutów dla wszystkich stron w serwisie ALUBRAM GMBH.
 
 **Zakres:**
+
 - ✅ Homepage (Startseite)
 - ✅ Produkte Overview
 - ✅ Single Produkt
